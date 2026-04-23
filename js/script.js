@@ -1,10 +1,11 @@
-const canvas = document.getElementById('canvas');
 
 const btnAddCircle = document.getElementById('btn-add-circle');
 const btnAddSquare = document.getElementById('btn-add-square');
 const btnAutoTraining = document.getElementById('auto-training');
 
-let ctx = canvas.getContext('2d');
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+
 let perceptron = new Perceptron();
 let drawer = new Drawer(ctx);
 let pos = { x: 0, y: 0 }
