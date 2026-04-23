@@ -47,7 +47,7 @@
             <div>
                 <div class="row">
                     <div class="col-lg-9 mb-0 mb-3 mb-lg-0">
-                        <canvas id="canvas" width="500px"></canvas>
+                        <canvas id="canvas"></canvas>
                     </div>
                     <div class="col-lg-3 mb-0 mb-3 mb-lg-0">
                         <div id="sidebar" class="card">
@@ -63,14 +63,14 @@
                                     <div class="tab-pane fade show active" id="settings">
 
                                         <form action="#" autocomplete="off">
-                                            <div class="form-group form-check">
+                                            <div class="form-check">
                                                 <input type="checkbox" class="form-check-input" id="auto-training">
                                                 <label class="form-check-label" for="auto-training">Auto Training</label>
                                             </div>
                                             <hr />
                                             <div class="mb-3">
                                                 <label for="learning-rate" class="form-label">Learning Rate</label>
-                                                <input type="number" class="form-control form-disable" id="learning-rate" min="0" step="0.0001" value="0.002" placeholder="Learning Rate" autocomplete="off">
+                                                <input type="number" class="form-control form-disable" id="learning-rate" min="0" max="1.0" step="0.001" value="0.002" placeholder="Learning Rate" autocomplete="off">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="max-iterations" class="form-label">Max Iterations</label>
