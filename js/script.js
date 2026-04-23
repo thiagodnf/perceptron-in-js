@@ -25,9 +25,7 @@ function gameLoop() {
 
     window.requestAnimationFrame(gameLoop);
 
-    // Clear the screen
-    ctx.fillStyle = "white";
-    ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
     drawer.drawAxis();
 
