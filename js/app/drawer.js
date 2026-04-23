@@ -13,7 +13,7 @@ class Drawer{
     }
 
     drawAxis(){
-    
+
         this.drawLine(2, 1, 0, 1 - 0.025, 0.025 );
         this.drawLine(2, 1, 0, 1 - 0.025, -0.025 );
 
@@ -40,60 +40,60 @@ class Drawer{
     }
 
     drawCircle(point) {
-        
-        var x = this.denormalize(point.x, 0, dim.width, -1, 1);
-        var y = this.denormalize(point.y, 0, dim.height, 1, -1);
-    
+
+        var x = this.denormalize(point.x, 0, ctx.canvas.width, -1, 1);
+        var y = this.denormalize(point.y, 0, ctx.canvas.height, 1, -1);
+
         this.ctx.beginPath();
         this.ctx.arc(x, y, 10, 0, 2 * Math.PI, true);
-    
+
         this.ctx.fillStyle = "#434348";
-    
+
         if(perceptron.isReady()){
-    
+
             var output = perceptron.classify(point);
-    
+
             if(output == point.type){
                 this.ctx.fillStyle = "#7cb5ec";
             }else{
                 this.ctx.fillStyle = "#f45b5b";
             }
         }
-    
+
         this.ctx.fill();
     }
-    
+
     drawRectangle(point) {
 
-        var x = this.denormalize(point.x, 0, dim.width, -1, 1);
-        var y = this.denormalize(point.y, 0, dim.height, 1, -1);
+        var x = this.denormalize(point.x, 0, ctx.canvas.width, -1, 1);
+        var y = this.denormalize(point.y, 0, ctx.canvas.height, 1, -1);
 
         this.ctx.beginPath();
         this.ctx.rect(x-10, y-10, 20, 20);
-        
+
         this.ctx.fillStyle = "#434348";
-    
+
         if(perceptron.isReady()){
-            
+
             var output = perceptron.classify(point);
-    
+
             if(output == point.type){
                 this.ctx.fillStyle = "#90ed7d";
             }else{
                 this.ctx.fillStyle = "#f45b5b";
             }
         }
-    
+
         ctx.fill();
     }
 
     drawDashedLines(width, x1, y1, x2, y2){
 
-        var x1 = this.denormalize(x1, 0, dim.width, -1, 1);
-        var y1 = this.denormalize(y1, 0, dim.height, 1, -1);
+        var x1 = this.denormalize(x1, 0, ctx.canvas.width, -1, 1);
+        var y1 = this.denormalize(y1, 0, ctx.canvas.height, 1, -1);
 
-        var x2 = this.denormalize(x2, 0, dim.width, -1, 1);
-        var y2 = this.denormalize(y2, 0, dim.height, 1, -1);
+        var x2 = this.denormalize(x2, 0, ctx.canvas.width, -1, 1);
+        var y2 = this.denormalize(y2, 0, ctx.canvas.height, 1, -1);
 
         this.ctx.beginPath();
         this.ctx.setLineDash([3]);
@@ -103,14 +103,14 @@ class Drawer{
         this.ctx.lineTo(x2,y2);
         this.ctx.stroke();
     }
-    
+
     drawLine(width, x1, y1, x2, y2){
 
-        var x1 = this.denormalize(x1, 0, dim.width, -1, 1);
-        var y1 = this.denormalize(y1, 0, dim.height, 1, -1);
+        var x1 = this.denormalize(x1, 0, ctx.canvas.width, -1, 1);
+        var y1 = this.denormalize(y1, 0, ctx.canvas.height, 1, -1);
 
-        var x2 = this.denormalize(x2, 0, dim.width, -1, 1);
-        var y2 = this.denormalize(y2, 0, dim.height, 1, -1);
+        var x2 = this.denormalize(x2, 0, ctx.canvas.width, -1, 1);
+        var y2 = this.denormalize(y2, 0, ctx.canvas.height, 1, -1);
 
         this.ctx.beginPath();
         this.ctx.setLineDash([]);
@@ -123,8 +123,8 @@ class Drawer{
 
     drawText(text, x, y){
 
-        x = this.denormalize(x, 0, dim.width, -1, 1);
-        y = this.denormalize(y, 0, dim.height, 1, -1);
+        x = this.denormalize(x, 0, ctx.canvas.width, -1, 1);
+        y = this.denormalize(y, 0, ctx.canvas.height, 1, -1);
 
         this.ctx.beginPath();
         this.ctx.fillStyle = "#434348";
