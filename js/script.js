@@ -1,25 +1,11 @@
-
-// window.requestAnimFrame = (function () {
-//     return window.requestAnimationFrame ||
-//         window.webkitRequestAnimationFrame ||
-//         window.mozRequestAnimationFrame ||
-//         window.oRequestAnimationFrame ||
-//         window.msRequestAnimationFrame ||
-//         function (callback, element) {
-//             window.setTimeout(function () {
-//                 callback(+new Date);
-//             }, 1000 / 60);
-//         };
-// })();
-
-var canvas = document.getElementById('canvas')
-var ctx = canvas.getContext('2d');
-var perceptron = new Perceptron();
-var drawer = new Drawer(ctx);
-var pos = { x: 0, y: 0 }
-var autoTraining = false;
-var type = 1;
-var points = [];
+let canvas = document.getElementById('canvas')
+let ctx = canvas.getContext('2d');
+let perceptron = new Perceptron();
+let drawer = new Drawer(ctx);
+let pos = { x: 0, y: 0 }
+let autoTraining = false;
+let type = 1;
+let points = [];
 
 function gameLoop() {
 
@@ -38,11 +24,11 @@ function gameLoop() {
         }
     })
 
-    var x1 = -1.0
-    var y1 = perceptron.guessY(x1)
+    let x1 = -1.0
+    let y1 = perceptron.guessY(x1)
 
-    var x2 = 1.0
-    var y2 = perceptron.guessY(x2)
+    let x2 = 1.0
+    let y2 = perceptron.guessY(x2)
 
     if (perceptron.isReady()) {
         drawer.drawLine(1, x1, y1, x2, y2);
@@ -79,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     $("#canvas").click(function (event) {
 
-        var rect = canvas.getBoundingClientRect();
+        let rect = canvas.getBoundingClientRect();
 
         pos = {
             x: event.clientX - rect.left,
