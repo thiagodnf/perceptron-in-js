@@ -71,6 +71,8 @@ document.addEventListener("DOMContentLoaded", function () {
             y: event.clientY - rect.top
         };
 
+        console.log(pos)
+
         // Normalize values;
 
         pos.x = drawer.normalize(pos.x, 0, ctx.canvas.width, -1, 1);
