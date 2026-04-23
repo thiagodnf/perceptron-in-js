@@ -1,0 +1,29 @@
+{
+	"name": "perceptron",
+	"version": "1.0.0",
+	"description": "A simple classifier for data learning and classification in Java and Javascript",
+	"main": "app.js",
+	"scripts": {
+		"start": "node app.js",
+		"restart": "nodemon app.js"
+	},
+	"engines": {
+		"node": ">=0.10.0"
+	},
+	"files": [
+		"app.js"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/thiagodnf/perceptron.git"
+	},
+	"author": "Thiago Ferreira",
+	"license": "MIT",
+	"homepage": "https://perceptron.github.io",
+	"dependencies": {
+		"connect": "",
+		"network": "",
+		"npm": "^6.4.1",
+		"serve-static": ""
+	}
+}

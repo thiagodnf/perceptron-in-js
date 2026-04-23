@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1" />
+
+        <meta name="author" content="Thiago Ferreira">
+        <meta name="description" content="A simple classifier for data learning and classification in Javascript">
+		<meta name="keywords" content="perceptron, classifier, machine learning, javascript">
+
+        <meta name="mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="apple-mobile-web-app-title" content="Perceptron">
+		<meta name="robots" content="index, follow">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/material.min.css">
+        <link rel="stylesheet" href="css/style.css">
+
+        <title>Perceptron in JS</title>
+    </head>
+    <body>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">Perceptron</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="toolbar">
+                <div class="row">
+                    <div class="col-6">
+                        <button type="button" class="btn btn-sm btn-primary" id="circle">Circle</button>
+                        <button type="button" class="btn btn-sm btn-outline-success" id="square">Square</button>
+                    </div>
+                    <div class="col-6 ">
+                        <form class="form-inline float-right ">
+                            <div class="form-group form-check">
+                                <input type="checkbox" class="form-check-input" id="auto-training">
+                                <label class="form-check-label" for="auto-training">Auto Training</label>
+                            </div>
+                            &nbsp;
+                            <div class="form-group ">
+                                <input type="number" class="form-control form-control-sm form-disable" id="learning-rate" min="0" step="0.0001" value="0.002" placeholder="Learning Rate" autocomplete="off" width="50">
+                            </div>
+                            &nbsp;
+                            <div class="form-group ">
+                                <input type="number" class="form-control form-control-sm form-disable" id="max-iterations" min="0" step="1" value="100" max="100000" placeholder="Max Iterations" autocomplete="off">
+                            </div>
+                            &nbsp;
+                            <button type="button" class="btn btn-sm btn-secondary form-disable" id="train">Train</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <canvas id="canvas" width="800px" height="600px"></canvas>
+        </div>
+
+        <div aria-live="assertive" aria-atomic="true" aria-relevant="text" class="mdl-snackbar mdl-js-snackbar">
+            <div class="mdl-snackbar__text"></div>
+            <button type="button" class="mdl-snackbar__action"></button>
+        </div>
+
+        <script src="js/vendor/jquery-3.3.1.min.js"></script>
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/vendor/material.min.js"></script>
+        <script src="js/app/point.js"></script>
+        <script src="js/app/perceptron.js"></script>
+        <script src="js/app/drawer.js"></script>
+        <script src="js/script.js"></script>
+    </body>
+</html>
