@@ -1,3 +1,7 @@
+body{
+    margin-top: 60px;
+}
+
 .navbar {
     background-color: rgba(55, 71, 79, 1) !important;
 }

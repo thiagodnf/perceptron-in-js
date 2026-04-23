@@ -69,7 +69,7 @@ function train() {
 function resizeWindow() {
 
     let canvasWidth = $(".col-lg-9").width();
-    let canvasHeight = $(window).height() - $("#canvas").offset().top - 22;
+    let canvasHeight = $(window).height() - $("#canvas").offset().top - 25;
 
     ctx.canvas.width = canvasWidth;
     ctx.canvas.height = canvasHeight;
