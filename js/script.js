@@ -1,16 +1,16 @@
 
-window.requestAnimFrame = (function () {
-    return window.requestAnimationFrame ||
-        window.webkitRequestAnimationFrame ||
-        window.mozRequestAnimationFrame ||
-        window.oRequestAnimationFrame ||
-        window.msRequestAnimationFrame ||
-        function (callback, element) {
-            window.setTimeout(function () {
-                callback(+new Date);
-            }, 1000 / 60);
-        };
-})();
+// window.requestAnimFrame = (function () {
+//     return window.requestAnimationFrame ||
+//         window.webkitRequestAnimationFrame ||
+//         window.mozRequestAnimationFrame ||
+//         window.oRequestAnimationFrame ||
+//         window.msRequestAnimationFrame ||
+//         function (callback, element) {
+//             window.setTimeout(function () {
+//                 callback(+new Date);
+//             }, 1000 / 60);
+//         };
+// })();
 
 var canvas = document.getElementById('canvas')
 var ctx = canvas.getContext('2d');
