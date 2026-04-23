@@ -58,21 +58,21 @@
                                 <div class="tab-content">
                                     <div class="tab-pane fade show active" id="settings">
 
-                                        <form class="form-inline float-right ">
+                                        <form autocomplete="off">
                                             <div class="form-group form-check">
                                                 <input type="checkbox" class="form-check-input" id="auto-training">
                                                 <label class="form-check-label" for="auto-training">Auto Training</label>
                                             </div>
-                                            &nbsp;
-                                            <div class="form-group ">
-                                                <input type="number" class="form-control form-control-sm form-disable" id="learning-rate" min="0" step="0.0001" value="0.002" placeholder="Learning Rate" autocomplete="off" width="50">
+                                            <hr />
+                                            <div class="mb-3">
+                                                <label for="learning-rate" class="form-label">Learning Rate</label>
+                                                <input type="number" class="form-control form-disable" id="learning-rate" min="0" step="0.0001" value="0.002" placeholder="Learning Rate" autocomplete="off">
                                             </div>
-                                            &nbsp;
-                                            <div class="form-group ">
-                                                <input type="number" class="form-control form-control-sm form-disable" id="max-iterations" min="0" step="1" value="100" max="100000" placeholder="Max Iterations" autocomplete="off">
+                                            <div class="mb-3">
+                                                <label for="max-iterations" class="form-label">Max Iterations</label>
+                                                <input type="number" class="form-control form-disable" id="max-iterations" min="0" step="1" value="100" max="100000" placeholder="Max Iterations" autocomplete="off">
                                             </div>
-                                            &nbsp;
-                                            <button type="button" class="btn btn-sm btn-secondary form-disable" id="train">Train</button>
+                                            <button class="btn btn-secondary form-disable" id="train">Train</button>
                                         </form>
 
                                     </div>

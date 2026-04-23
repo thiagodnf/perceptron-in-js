@@ -2,10 +2,6 @@
     background-color: rgba(55, 71, 79, 1) !important;
 }
 
-input[type=number] {
-    width: 90px !important;
-}
-
 canvas {
     border-radius: .25rem;
     border: 1px solid rgba(0, 0, 0, .125);
