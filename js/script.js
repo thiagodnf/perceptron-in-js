@@ -17,7 +17,6 @@ var ctx = canvas.getContext('2d');
 var perceptron = new Perceptron();
 var drawer = new Drawer(ctx);
 var pos = { x: 0, y: 0 }
-// var dim = { weight: 0, height: 0 }
 var autoTraining = false;
 var type = 1;
 var points = [];
@@ -26,10 +25,7 @@ function gameLoop() {
 
     window.requestAnimationFrame(gameLoop);
 
-    // ctx.canvas.width = dim.width;
-    // ctx.canvas.height = dim.height;
-
-    // // Clear the screen
+    // Clear the screen
     ctx.fillStyle = "white";
     ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
@@ -83,11 +79,6 @@ function resizeWindow() {
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    // dim = {
-    //     width: $(".container-fluid").width(),
-    //     height: $(window).height() - $("#canvas").offset().top - 20
-    // }
-
     $("#canvas").click(function (event) {
 
         var rect = canvas.getBoundingClientRect();
@@ -105,8 +96,8 @@ document.addEventListener("DOMContentLoaded", function () {
         points.push(new Point(pos.x, pos.y, type));
     })
 
-
     $('#auto-training').click(function () {
+
         autoTraining = $(this).is(':checked');
 
         if (autoTraining) {
