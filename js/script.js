@@ -2,6 +2,9 @@
 const btnAddCircle = document.getElementById('btn-add-circle');
 const btnAddSquare = document.getElementById('btn-add-square');
 const btnAutoTraining = document.getElementById('auto-training');
+const btnTrain = document.getElementById('train');
+const sidebarPanel = document.getElementById('sidebar');
+
 
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
@@ -14,8 +17,6 @@ let type = 1;
 let points = [];
 
 function gameLoop() {
-
-    window.requestAnimationFrame(gameLoop);
 
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
@@ -46,14 +47,8 @@ function gameLoop() {
         perceptron.setMaxIterations(parseInt($("#max-iterations").val()))
         perceptron.train(points);
     }
-}
 
-function train() {
-
-    perceptron.reset();
-    perceptron.setLearningRate(parseFloat($("#learning-rate").val()))
-    perceptron.setMaxIterations(parseInt($("#max-iterations").val()))
-    perceptron.trainWithIterations(points);
+    window.requestAnimationFrame(gameLoop);
 }
 
 function resizeWindow() {
@@ -61,10 +56,10 @@ function resizeWindow() {
     let canvasWidth = $(".col-lg-9").width();
     let canvasHeight = $(window).height() - $("#canvas").offset().top - 25;
 
-    ctx.canvas.width = canvasWidth;
-    ctx.canvas.height = canvasHeight;
+    canvas.width = canvasWidth;
+    canvas.height = canvasHeight;
 
-    $("#sidebar").height(canvasHeight);
+    sidebarPanel.style.height = canvasHeight + "px";
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -105,7 +100,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    $("#train").click(train)
+    btnTrain.addEventListener("click", function (event) {
+        perceptron.reset();
+        perceptron.setLearningRate(parseFloat($("#learning-rate").val()))
+        perceptron.setMaxIterations(parseInt($("#max-iterations").val()))
+        perceptron.trainWithIterations(points);
+    });
 
     window.addEventListener("resize", resizeWindow);
     window.dispatchEvent(new Event("resize"));
