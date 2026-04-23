@@ -1,10 +1,8 @@
-
 const btnAddCircle = document.getElementById('btn-add-circle');
 const btnAddSquare = document.getElementById('btn-add-square');
 const btnAutoTraining = document.getElementById('auto-training');
 const btnTrain = document.getElementById('train');
 const sidebarPanel = document.getElementById('sidebar');
-
 
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');

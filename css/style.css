@@ -1,16 +1,11 @@
-body{
+body {
     margin-top: 55px;
 }
 
-label{
+label {
     font-weight: bold;
 }
 
 .navbar {
     background-color: rgba(55, 71, 79, 1) !important;
-}
-
-canvas {
-    border-radius: .25rem;
-    border: 1px solid rgba(0, 0, 0, .125);
 }
