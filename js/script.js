@@ -1,4 +1,9 @@
-let canvas = document.getElementById('canvas')
+const canvas = document.getElementById('canvas');
+
+const btnAddCircle = document.getElementById('btn-add-circle');
+const btnAddSquare = document.getElementById('btn-add-square');
+const btnAutoTraining = document.getElementById('auto-training');
+
 let ctx = canvas.getContext('2d');
 let perceptron = new Perceptron();
 let drawer = new Drawer(ctx);
@@ -63,7 +68,7 @@ function resizeWindow() {
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    $("#canvas").click(function (event) {
+    canvas.addEventListener("click", function (event) {
 
         let rect = canvas.getBoundingClientRect();
 
@@ -78,9 +83,17 @@ document.addEventListener("DOMContentLoaded", function () {
         pos.y = drawer.normalize(pos.y, 0, ctx.canvas.height, 1, -1);
 
         points.push(new Point(pos.x, pos.y, type));
-    })
+    });
 
-    $('#auto-training').click(function () {
+    btnAddCircle.addEventListener("click", function (event) {
+        type = 1;
+    });
+
+    btnAddSquare.addEventListener("click", function (event) {
+        type = -1;
+    });
+
+    btnAutoTraining.addEventListener("click", function (event) {
 
         autoTraining = $(this).is(':checked');
 
@@ -91,29 +104,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    $("#circle").click(function (event) {
-        $("#square").removeClass("btn-success")
-        $("#square").addClass("btn-outline-success")
-        $(this).removeClass("btn-outline-primary")
-        $(this).addClass("btn-primary")
-
-        type = 1;
-    })
-
-    $("#square").click(function (event) {
-        $("#circle").removeClass("btn-primary")
-        $("#circle").addClass("btn-outline-primary")
-        $(this).removeClass("btn-outline-success")
-        $(this).addClass("btn-success")
-
-        type = -1;
-    })
-
     $("#train").click(train)
 
     window.addEventListener("resize", resizeWindow);
     window.dispatchEvent(new Event("resize"));
 
     gameLoop();
-
 });
