@@ -109,5 +109,9 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("resize", resizeWindow);
     window.dispatchEvent(new Event("resize"));
 
+    document.querySelectorAll('[data-bs-toggle="popover"]').forEach(el => {
+        new bootstrap.Popover(el);
+    });
+
     gameLoop();
 });

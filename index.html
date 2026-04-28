@@ -71,17 +71,24 @@
                                         </div>
                                         <hr />
                                         <div class="mb-3">
-                                            <label for="learning-rate" class="form-label">Learning Rate</label>
+                                            <label for="learning-rate" class="form-label d-flex align-items-center justify-content-between">
+                                                <span>Learning Rate</span>
+                                                <i type="button" class="bi bi-info-circle" data-bs-trigger="hover focus" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="left" data-bs-content="How much the model updates its parameters each optimization step."></i>
+                                            </label>
                                             <input type="number" class="form-control form-disable" id="learning-rate" min="0.0" max="1.0" step="0.001" value="0.002" placeholder="Learning Rate" autocomplete="off">
-                                            <div class="form-text">How much the model updates its parameters each optimization step.</div>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="max-iterations" class="form-label">Max Iterations</label>
+                                            <label for="max-iterations" class="form-label d-flex align-items-center justify-content-between">
+                                                <span>Max Iterations</span>
+                                                <i type="button" class="bi bi-info-circle" data-bs-trigger="hover focus" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="left" data-bs-content="Number of training passes/updates the perceptron is allowed before stopping."></i>
+                                            </label>
                                             <input type="number" class="form-control form-disable" id="max-iterations" min="0" step="1" value="100" max="100000" placeholder="Max Iterations" autocomplete="off">
-                                            <div class="form-text">Number of training passes/updates the perceptron is allowed before stopping.</div>
                                         </div>
                                         <button class="btn btn-primary form-disable" id="train">Train</button>
                                     </form>
+
+
+
                                 </div>
                             </div>
                         </div>
