@@ -4,6 +4,9 @@ const btnAutoTraining = document.getElementById('auto-training');
 const btnTrain = document.getElementById('train');
 const sidebarPanel = document.getElementById('sidebar');
 
+const learningRate = document.getElementById("learning-rate");
+const maxIterations = document.getElementById("max-iterations");
+
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
@@ -20,14 +23,14 @@ function gameLoop() {
 
     drawer.drawAxis();
 
-    $.each(points, function (index, point) {
+    for (const point of points) {
 
         if (point.type == 1) {
             drawer.drawCircle(point);
         } else {
             drawer.drawRectangle(point);
         }
-    })
+    }
 
     let x1 = -1.0
     let y1 = perceptron.guessY(x1)
@@ -40,9 +43,9 @@ function gameLoop() {
     }
 
     if (autoTraining) {
-        perceptron.setLearningRate(parseFloat($("#learning-rate").val()))
-        perceptron.setCountIterations(parseInt($("#max-iterations").val()))
-        perceptron.setMaxIterations(parseInt($("#max-iterations").val()))
+        perceptron.setLearningRate(learningRate.value)
+        perceptron.setCountIterations(maxIterations.value)
+        perceptron.setMaxIterations(maxIterations.value)
         perceptron.train(points);
     }
 
@@ -51,13 +54,12 @@ function gameLoop() {
 
 function resizeWindow() {
 
-    let canvasWidth = $(".col-lg-9").width();
-    let canvasHeight = $(window).height() - $("#canvas").offset().top - 25;
+    const height = window.innerHeight - canvas.getBoundingClientRect().top - 25;
 
-    canvas.width = canvasWidth;
-    canvas.height = canvasHeight;
+    canvas.width = canvas.clientWidth;
+    canvas.height = height;
 
-    sidebarPanel.style.height = canvasHeight + "px";
+    sidebarPanel.style.height = height + "px";
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -70,8 +72,6 @@ document.addEventListener("DOMContentLoaded", function () {
             x: event.clientX - rect.left,
             y: event.clientY - rect.top
         };
-
-        console.log(pos)
 
         // Normalize values;
 
@@ -91,19 +91,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
     btnAutoTraining.addEventListener("click", function (event) {
 
-        autoTraining = $(this).is(':checked');
+        autoTraining = btnAutoTraining.checked;
 
-        if (autoTraining) {
-            $(".form-disable").prop("disabled", "disabled");
-        } else {
-            $(".form-disable").prop("disabled", "");
-        }
+        document.querySelectorAll(".form-disable").forEach(el => {
+            el.disabled = autoTraining;
+        });
     });
 
     btnTrain.addEventListener("click", function (event) {
+
         perceptron.reset();
-        perceptron.setLearningRate(parseFloat($("#learning-rate").val()))
-        perceptron.setMaxIterations(parseInt($("#max-iterations").val()))
+        perceptron.setLearningRate(learningRate.valueAsNumber)
+        perceptron.setMaxIterations(maxIterations.valueAsNumber)
         perceptron.trainWithIterations(points);
     });
 
